@@ -1,0 +1,46 @@
+@layout("/common/_container.html"){
+<div class="ibox float-e-margins">
+    <div class="ibox-content">
+        <div class="form-horizontal">
+
+            <input type="hidden" id="id" value="${item.id}">
+
+            <div class="row">
+                <div class="col-sm-6 b-r">
+                            <#input id="mId" name="会员ID" value="${item.mId}" underline="true"/>
+                            <#input id="shopName" name="企业名称" value="${item.shopName}" underline="true"/>
+                            <#input id="logo" name="企业logo" value="${item.logo}" underline="true"/>
+                            <#input id="status" name="状态" value="${item.status}" underline="true"/>
+                            <#input id="addtime" name="加入时间" value="${item.addtime}" underline="true"/>
+                            <#input id="endtime" name="编辑时间" value="${item.endtime}" underline="true"/>
+                            <#input id="tel" name="电话" value="${item.tel}" underline="true"/>
+                            <#input id="email" name="邮箱" value="${item.email}" underline="true"/>
+                            <#input id="customerUrl" name="客服url" value="${item.customerUrl}" underline="true"/>
+                            <#input id="businessLicense" name="营业执照" value="${item.businessLicense}" />
+                </div>
+
+                <div class="col-sm-6">
+                            <#input id="prov" name="省" value="${item.prov}" underline="true"/>
+                            <#input id="city" name="市" value="${item.city}" underline="true"/>
+                            <#input id="area" name="区" value="${item.area}" underline="true"/>
+                            <#input id="address" name="地址" value="${item.address}" underline="true"/>
+                            <#input id="desc" name="描述" value="${item.desc}" underline="true"/>
+                            <#input id="goodsComment" name="评论数" value="${item.goodsComment}" underline="true"/>
+                            <#input id="level" name="等级" value="${item.level}" underline="true"/>
+                            <#input id="balance" name="余额" value="${item.balance}" underline="true"/>
+                            <#input id="bannerUrl" name="banner_url" value="${item.bannerUrl}" />
+                </div>
+            </div>
+
+            <div class="row btn-group-m-t">
+                <div class="col-sm-10">
+                    <#button btnCss="info" name="提交" id="ensure" icon="fa-check" clickFun="MemberShopInfoDlg.editSubmit()"/>
+                    <#button btnCss="danger" name="取消" id="cancel" icon="fa-eraser" clickFun="MemberShopInfoDlg.close()"/>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<script src="${ctxPath}/static/modular/system/memberShop/memberShop_info.js"></script>
+@}

@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="cute-admin:war">
+    <output-path>$PROJECT_DIR$/cute-admin/target</output-path>
+    <root id="archive" name="cute-admin-1.0-SNAPSHOT.war">
+      <element id="artifact" artifact-name="cute-admin:war exploded" />
+    </root>
+  </artifact>
+</component>

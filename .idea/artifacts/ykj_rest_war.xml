@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="ykj-rest:war">
+    <output-path>$PROJECT_DIR$/ykj-rest/target</output-path>
+    <root id="archive" name="ykj-rest.war">
+      <element id="artifact" artifact-name="ykj-rest:war exploded" />
+    </root>
+  </artifact>
+</component>

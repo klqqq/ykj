@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/ykj.iml" filepath="$PROJECT_DIR$/ykj.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ykj-admin/ykj-admin.iml" filepath="$PROJECT_DIR$/ykj-admin/ykj-admin.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ykj-core/ykj-core.iml" filepath="$PROJECT_DIR$/ykj-core/ykj-core.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ykj-generator/ykj-generator.iml" filepath="$PROJECT_DIR$/ykj-generator/ykj-generator.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ykj-rest/ykj-rest.iml" filepath="$PROJECT_DIR$/ykj-rest/ykj-rest.iml" />
+    </modules>
+  </component>
+</project>
