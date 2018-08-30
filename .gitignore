@@ -3,5 +3,5 @@
 *.war
 */target/*
 .idea/workspace.xml
-logs
-.idea
+/logs
+/.idea
