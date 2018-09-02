@@ -1,6 +1,6 @@
 package com.ykj.java.common.validator;
 
-import com.ykj.java.common.exception.Exception;
+import com.ykj.java.common.exception.YkjException;
 import org.apache.commons.lang.StringUtils;
 
 import java.util.regex.Matcher;
@@ -16,13 +16,13 @@ public abstract class Assert {
 
     public static void isBlank(String str, String message) {
         if (StringUtils.isBlank(str)) {
-            throw new Exception(message);
+            throw new YkjException(message);
         }
     }
 
     public static void isNull(Object object, String message) {
         if (object == null) {
-            throw new Exception(message);
+            throw new YkjException(message);
         }
     }
     public static boolean checkCellphone(String cellphone) {

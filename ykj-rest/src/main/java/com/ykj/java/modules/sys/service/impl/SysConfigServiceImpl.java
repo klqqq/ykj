@@ -1,7 +1,7 @@
 package com.ykj.java.modules.sys.service.impl;
 
 import com.google.gson.Gson;
-import com.ykj.java.common.exception.Exception;
+import com.ykj.java.common.exception.YkjException;
 import com.ykj.java.modules.sys.dao.SysConfigDao;
 import com.ykj.java.modules.sys.entity.SysConfigEntity;
 import com.ykj.java.modules.sys.redis.SysConfigRedis;
@@ -89,7 +89,7 @@ public class SysConfigServiceImpl implements SysConfigService {
 		try {
 			return clazz.newInstance();
 		} catch (java.lang.Exception e) {
-			throw new Exception("获取参数失败");
+			throw new YkjException("获取参数失败");
 		}
 	}
 }

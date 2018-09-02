@@ -2,7 +2,7 @@ package com.ykj.java.modules.app.interceptor;
 
 
 import io.jsonwebtoken.Claims;
-import com.ykj.java.common.exception.Exception;
+import com.ykj.java.common.exception.YkjException;
 import com.ykj.java.modules.app.utils.JwtUtils;
 import com.ykj.java.modules.app.annotation.Login;
 import org.apache.commons.lang.StringUtils;
@@ -25,8 +25,7 @@ import javax.servlet.http.HttpServletResponse;
 public class AuthorizationInterceptor extends HandlerInterceptorAdapter {
     @Autowired
     private JwtUtils jwtUtils;
-    @Autowired
-    private AppMemberDao appMemberDao;
+
     public static final String USER_KEY = "username";
 
     @Override
@@ -50,26 +49,26 @@ public class AuthorizationInterceptor extends HandlerInterceptorAdapter {
 
         //凭证为空
         if(StringUtils.isBlank(token)){
-            throw new Exception(jwtUtils.getHeader() + "不能为空", HttpStatus.UNAUTHORIZED.value());
+            throw new YkjException(jwtUtils.getHeader() + "不能为空", HttpStatus.UNAUTHORIZED.value());
         }
 
         Claims claims = jwtUtils.getClaimByToken(token);
         if(claims == null || jwtUtils.isTokenExpired(claims.getExpiration())){
-            throw new Exception(jwtUtils.getHeader() + "失效，请重新登录", HttpStatus.UNAUTHORIZED.value());
+            throw new YkjException(jwtUtils.getHeader() + "失效，请重新登录", HttpStatus.UNAUTHORIZED.value());
         }
-        String username = claims.getSubject();
-        if (claims == null) {
-            throw new Exception("验证错误", HttpStatus.UNAUTHORIZED.value());
-        }
-        String id = appMemberDao.queryIdByUserName(username);
-        if (id == null) {
-            throw new Exception("验证错误", HttpStatus.UNAUTHORIZED.value());
-        } else {
-            return true;
-        }
+        // String username = claims.getSubject();
+        // if (claims == null) {
+        //     throw new YkjException("验证错误", HttpStatus.UNAUTHORIZED.value());
+        // }
+        // String id = appMemberDao.queryIdByUserName(username);
+        // if (id == null) {
+        //     throw new YkjException("验证错误", HttpStatus.UNAUTHORIZED.value());
+        // } else {
+        //     return true;
+        // }
         //设置userId到request里，后续根据userId，获取用户信息
 //        request.setAttribute(USER_KEY, Long.parseLong(claims.getSubject()));
 
-//        return true;
+       return true;
     }
 }

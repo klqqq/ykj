@@ -1,6 +1,6 @@
 package com.ykj.java.common.utils;
 
-import com.ykj.java.common.exception.Exception;
+import com.ykj.java.common.exception.YkjException;
 import com.ykj.java.modules.sys.entity.SysUserEntity;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.session.Session;
@@ -46,7 +46,7 @@ public class ShiroUtils {
 	public static String getKaptcha(String key) {
 		Object kaptcha = getSessionAttribute(key);
 		if(kaptcha == null){
-			throw new Exception("验证码已失效");
+			throw new YkjException("验证码已失效");
 		}
 		getSession().removeAttribute(key);
 		return kaptcha.toString();

@@ -1,6 +1,6 @@
 package com.ykj.java.common.xss;
 
-import com.ykj.java.common.exception.Exception;
+import com.ykj.java.common.exception.YkjException;
 import org.apache.commons.lang.StringUtils;
 
 /**
@@ -34,7 +34,7 @@ public class SQLFilter {
         //判断是否包含非法字符
         for(String keyword : keywords){
             if(str.indexOf(keyword) != -1){
-                throw new Exception("包含非法字符");
+                throw new YkjException("包含非法字符");
             }
         }
 

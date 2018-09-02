@@ -29,7 +29,7 @@ public class AppUserService extends ServiceSupport {
         //密码错误
 //        String userpassword = DigestUtils.sha256Hex(password);
 //        if(!user.get("password").equals(userpassword)){
-//            throw new Exception("密码错误");
+//            throw new YkjException("密码错误");
 //        }
         return user;
     }
