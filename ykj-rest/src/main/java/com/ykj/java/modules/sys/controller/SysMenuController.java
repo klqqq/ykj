@@ -1,7 +1,7 @@
 package com.ykj.java.modules.sys.controller;
 
 import com.ykj.java.common.annotation.SysLog;
-import com.ykj.java.common.exception.Exception;
+import com.ykj.java.common.exception.YkjException;
 import com.ykj.java.common.utils.Constant.MenuType;
 import com.ykj.java.common.utils.R;
 import com.ykj.java.modules.sys.entity.SysMenuEntity;
@@ -138,17 +138,17 @@ public class SysMenuController extends AbstractController {
 	 */
 	private void verifyForm(SysMenuEntity menu){
 		if(StringUtils.isBlank(menu.getName())){
-			throw new Exception("菜单名称不能为空");
+			throw new YkjException("菜单名称不能为空");
 		}
 		
 		if(menu.getParentId() == null){
-			throw new Exception("上级菜单不能为空");
+			throw new YkjException("上级菜单不能为空");
 		}
 		
 		//菜单
 		if(menu.getType() == MenuType.MENU.getValue()){
 			if(StringUtils.isBlank(menu.getUrl())){
-				throw new Exception("菜单URL不能为空");
+				throw new YkjException("菜单URL不能为空");
 			}
 		}
 		
@@ -163,7 +163,7 @@ public class SysMenuController extends AbstractController {
 		if(menu.getType() == MenuType.CATALOG.getValue() ||
 				menu.getType() == MenuType.MENU.getValue()){
 			if(parentType != MenuType.CATALOG.getValue()){
-				throw new Exception("上级菜单只能为目录类型");
+				throw new YkjException("上级菜单只能为目录类型");
 			}
 			return ;
 		}
@@ -171,7 +171,7 @@ public class SysMenuController extends AbstractController {
 		//按钮
 		if(menu.getType() == MenuType.BUTTON.getValue()){
 			if(parentType != MenuType.MENU.getValue()){
-				throw new Exception("上级菜单只能为菜单类型");
+				throw new YkjException("上级菜单只能为菜单类型");
 			}
 			return ;
 		}

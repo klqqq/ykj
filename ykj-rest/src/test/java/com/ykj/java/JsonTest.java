@@ -72,9 +72,6 @@ public class JsonTest extends Thread {
 
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
-    @Autowired
-    private AppMemberDao appMemberDao;
-
     @Test
     public void test() {
 

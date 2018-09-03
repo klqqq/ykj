@@ -1,6 +1,6 @@
 package com.ykj.java.modules.user.service.impl;
 
-import com.ykj.java.common.exception.Exception;
+import com.ykj.java.common.exception.YkjException;
 import com.ykj.java.common.validator.Assert;
 import com.ykj.java.modules.user.entity.UserEntity;
 import com.ykj.java.modules.user.dao.UserDao;
@@ -79,7 +79,7 @@ public class UserServiceImpl implements UserService {
 		//密码错误
 		String userpassword = DigestUtils.sha256Hex(password);
 		if(!user.getPassword().equals(userpassword)){
-			throw new Exception("密码错误");
+			throw new YkjException("密码错误");
 		}
 
 		return user.getUserId();

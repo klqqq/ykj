@@ -1,6 +1,6 @@
 package com.ykj.java.modules.sys.service.impl;
 
-import com.ykj.java.common.exception.Exception;
+import com.ykj.java.common.exception.YkjException;
 import com.ykj.java.modules.sys.dao.SysUserDao;
 import com.ykj.java.modules.sys.service.SysRoleService;
 import com.ykj.java.modules.sys.service.SysUserRoleService;
@@ -131,7 +131,7 @@ public class SysUserServiceImpl implements SysUserService {
 		
 		//判断是否越权
 		if(!roleIdList.containsAll(user.getRoleIdList())){
-			throw new Exception("新增用户所选角色，不是本人创建");
+			throw new YkjException("新增用户所选角色，不是本人创建");
 		}
 	}
 }

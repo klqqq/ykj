@@ -1,6 +1,6 @@
 package com.ykj.java.common.aspect;
 
-import com.ykj.java.common.exception.Exception;
+import com.ykj.java.common.exception.YkjException;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
@@ -32,7 +32,7 @@ public class RedisAspect {
                 result = point.proceed();
             }catch (java.lang.Exception e){
                 logger.error("redis error", e);
-                throw new Exception("Redis服务异常");
+                throw new YkjException("Redis服务异常");
             }
         }
         return result;

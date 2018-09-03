@@ -1,6 +1,6 @@
 package com.ykj.java.modules.sys.oauth2;
 
-import com.ykj.java.common.exception.Exception;
+import com.ykj.java.common.exception.YkjException;
 
 import java.security.MessageDigest;
 import java.util.UUID;
@@ -40,7 +40,7 @@ public class TokenGenerator {
             byte[] messageDigest = algorithm.digest();
             return toHexString(messageDigest);
         } catch (java.lang.Exception e) {
-            throw new Exception("生成Token失败", e);
+            throw new YkjException("生成Token失败", e);
         }
     }
 }

@@ -1,6 +1,6 @@
 package com.ykj.java.modules.sys.service.impl;
 
-import com.ykj.java.common.exception.Exception;
+import com.ykj.java.common.exception.YkjException;
 import com.ykj.java.modules.sys.dao.SysRoleDao;
 import com.ykj.java.modules.sys.entity.SysRoleEntity;
 import com.ykj.java.modules.sys.service.SysRoleMenuService;
@@ -102,7 +102,7 @@ public class SysRoleServiceImpl implements SysRoleService {
 		
 		//判断是否越权
 		if(!menuIdList.containsAll(role.getMenuIdList())){
-			throw new Exception("新增角色的权限，已超出你的权限范围");
+			throw new YkjException("新增角色的权限，已超出你的权限范围");
 		}
 	}
 }

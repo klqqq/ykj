@@ -86,7 +86,7 @@ public class Video {
 //            }
 //            //Base信息
 //            System.out.print("VideoBase.Title = " + response.getVideoBase().getTitle() + "\n");
-//        } catch (Exception e) {
+//        } catch (YkjException e) {
 //            System.out.print("ErrorMessage = " + e.getLocalizedMessage());
 //        }
 //        System.out.print("RequestId = " + response.getRequestId() + "\n");
@@ -100,7 +100,7 @@ public class Video {
 //            System.out.print("Mezzanine.Width = " + r.getMezzanine().getWidth() + "\n");
 //            System.out.print("Mezzanine.Height = " + r.getMezzanine().getWidth() + "\n");
 //            System.out.print("Mezzanine.Size = " + r.getMezzanine().getSize() + "\n");
-//        } catch (Exception e) {
+//        } catch (YkjException e) {
 //            System.out.print("ErrorMessage = " + e.getLocalizedMessage());
 //        }
 //        System.out.print("RequestId = " + r.getRequestId() + "\n");
@@ -110,7 +110,7 @@ public class Video {
 //            SB = getVideoInfo(client);
 //            System.out.print("Title = " + SB.getVideo().getTitle() + "\n");
 //            System.out.print("Description = " + SB.getVideo().getDescription() + "\n");
-//        } catch (Exception e) {
+//        } catch (YkjException e) {
 //            System.out.print("ErrorMessage = " + e.getLocalizedMessage());
 //        }
 //        System.out.print("RequestId = " + r.getRequestId() + "\n");
@@ -123,7 +123,7 @@ public class Video {
 //            System.out.print("PlayAuth = " + resp.getPlayAuth() + "\n");
 //            //VideoMeta信息
 //            System.out.print("VideoMeta.Title = " + resp.getVideoMeta().getTitle() + "\n");
-//        } catch (Exception e) {
+//        } catch (YkjException e) {
 //            System.out.print("ErrorMessage = " + e.getLocalizedMessage());
 //        }
 //        System.out.print("RequestId = " + resp.getRequestId() + "\n");
@@ -135,7 +135,7 @@ public class Video {
 //            System.out.print("VideoId = " + respon.getVideoId() + "\n");
 //            System.out.print("UploadAddress = " + respon.getUploadAddress() + "\n");
 //            System.out.print("UploadAuth = " + respon.getUploadAuth() + "\n");
-//        } catch (Exception e) {
+//        } catch (YkjException e) {
 //            System.out.print("ErrorMessage = " + e.getLocalizedMessage());
 //        }
 //        System.out.print("RequestId = " + response.getRequestId() + "\n");

@@ -1,6 +1,6 @@
 package com.ykj.java.common.validator;
 
-import com.ykj.java.common.exception.Exception;
+import com.ykj.java.common.exception.YkjException;
 
 import javax.validation.ConstraintViolation;
 import javax.validation.Validation;
@@ -27,17 +27,17 @@ public class ValidatorUtils {
      * 校验对象
      * @param object        待校验对象
      * @param groups        待校验的组
-     * @throws Exception  校验不通过，则报RRException异常
+     * @throws YkjException  校验不通过，则报RRException异常
      */
     public static void validateEntity(Object object, Class<?>... groups)
-            throws Exception {
+            throws YkjException {
         Set<ConstraintViolation<Object>> constraintViolations = validator.validate(object, groups);
         if (!constraintViolations.isEmpty()) {
             StringBuilder msg = new StringBuilder();
             for(ConstraintViolation<Object> constraint:  constraintViolations){
                 msg.append(constraint.getMessage()).append("<br>");
             }
-            throw new Exception(msg.toString());
+            throw new YkjException(msg.toString());
         }
     }
 }

@@ -123,7 +123,7 @@ public class AppBaseResult<T> implements Serializable {
 //			}else{
 //				this.data = mData;
 //			}
-//		} catch (Exception e) {
+//		} catch (YkjException e) {
 //			e.printStackTrace();
 //		}
 //		return this;
