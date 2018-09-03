@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ykj.java.modules.app.dao.AppSaleGoodsDao">
+
+	<insert id="insertSaleGoods" parameterType="java.util.HashMap">
+		insert into pd_ProductInfo
+		(
+		storeID,
+		state,
+		productType,
+		productName,
+		mainPicture,
+		preferentialPrice,
+		originalPrice,
+		ShareCommission,
+		limitNum,
+		recevieNum,
+		expirationDays,
+		startTime,
+		endTime,
+		useTimeType,
+		reservationType,
+		reservationInfo,
+		detail
+		) values
+		(
+		#{storeID},
+		#{state},
+		#{productType},
+		#{productName},
+		#{mainPicture},
+		#{preferentialPrice},
+		#{originalPrice},
+		#{ShareCommission},
+		#{limitNum},
+		#{recevieNum},
+		#{expirationDays},
+		#{startTime},
+		#{endTime},
+		#{useTimeType},
+		#{reservationType},
+	    #{reservationInfo},
+		#{detail}
+
+		)
+	</insert>
+
+</mapper>
