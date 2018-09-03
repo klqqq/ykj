@@ -1,4 +1,4 @@
-package com.ykj.java.modules.app.controller.appUpdate.controller;
+package com.ykj.java.modules.app.controller;
 
 import com.ykj.java.common.exception.YkjException;
 import com.ykj.java.common.utils.AppBaseResult;
@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.HashMap;
 
 @RestController
-@RequestMapping("app/")
+@RequestMapping("api/")
 public class AppSaleGoodsController {
 
     @Autowired
@@ -26,9 +26,6 @@ public class AppSaleGoodsController {
         }
         return AppBaseResult.success("新增成功");
     }
-
-
-
 
 
 
