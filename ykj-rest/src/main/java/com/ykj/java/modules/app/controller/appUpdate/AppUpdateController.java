@@ -1,24 +1,24 @@
 package com.ykj.java.modules.app.controller.appUpdate;
 
-import java.util.HashMap;
 import com.google.gson.Gson;
-import java.util.List;
-
 import com.ykj.java.common.utils.AppBaseResult;
 import com.ykj.java.common.utils.PageUtils;
 import com.ykj.java.common.utils.Query;
 import com.ykj.java.modules.app.service.appUpdate.AppUpdateService;
-import org.slf4j.LoggerFactory;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.bind.annotation.RequestBody;
 
 import javax.annotation.Resource;
+import java.util.HashMap;
+import java.util.List;
 
 
 /**
@@ -33,11 +33,12 @@ import javax.annotation.Resource;
 @RequestMapping("/app")
 public class AppUpdateController {
 
-    private org.slf4j.Logger logger = LoggerFactory.getLogger(getClass());
+    private Logger logger = LoggerFactory.getLogger(getClass());
 
     @Resource(name = "appUpdateService")
 	private AppUpdateService appUpdateService;
-	
+
+
 	/**
 	 * 列表
 	 */
