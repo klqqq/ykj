@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ykj.java.modules.app.dao.GoodsCustomDao">
+
+	<!--获取商品自定义分类类别-->
+	<select id="queryCustomList" parameterType="int" resultType="java.util.HashMap">
+		select productTypeID,productTypeName,isTop,setTopTime from pd_ProductTypeList where storeID=#{shop_id} order by setTopTime desc
+	</select>
+
+	<!--重命名自定义分类名-->
+	<update id="updateKindsName">
+		update pd_ProductTypeList set productTypeName=#{newName} where productTypeID=#{id}
+	</update>
+</mapper>
+

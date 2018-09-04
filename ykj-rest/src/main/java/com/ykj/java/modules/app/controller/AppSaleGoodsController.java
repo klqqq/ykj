@@ -1,4 +1,4 @@
-package com.ykj.java.modules.app.controller.appUpdate.controller;
+package com.ykj.java.modules.app.controller;
 
 import com.ykj.java.common.exception.YkjException;
 import com.ykj.java.common.utils.AppBaseResult;
