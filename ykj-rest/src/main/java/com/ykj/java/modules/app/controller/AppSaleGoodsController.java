@@ -1,4 +1,4 @@
-package com.ykj.java.modules.app.controller;
+package com.ykj.java.modules.app.controller.appUpdate.controller;
 
 import com.ykj.java.common.exception.YkjException;
 import com.ykj.java.common.utils.AppBaseResult;
@@ -26,6 +26,9 @@ public class AppSaleGoodsController {
         }
         return AppBaseResult.success("新增成功");
     }
+
+
+
 
 
 
