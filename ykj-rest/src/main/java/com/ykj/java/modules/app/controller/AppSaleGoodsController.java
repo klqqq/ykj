@@ -1,4 +1,4 @@
-package com.ykj.java.modules.app.controller.appUpdate.controller;
+package com.ykj.java.modules.app.controller;
 
 import com.ykj.java.common.exception.YkjException;
 import com.ykj.java.common.utils.AppBaseResult;
@@ -10,14 +10,14 @@ import org.springframework.web.bind.annotation.*;
 import java.util.HashMap;
 
 @RestController
-@RequestMapping("app/")
+@RequestMapping("/app")
 public class AppSaleGoodsController {
 
     @Autowired
     private AppSaleGoodsService appSaleGoodsService;
 
     @CrossOrigin
-    @PostMapping("addSaleGoods")
+    @PostMapping("/addSaleGoods")
     public AppBaseResult addSaleGoods(@RequestBody AppBaseResult appBaseResult){
         HashMap<String,Object> data=(HashMap) appBaseResult.getData();
         int i=appSaleGoodsService.insertSaleGoods(data);
