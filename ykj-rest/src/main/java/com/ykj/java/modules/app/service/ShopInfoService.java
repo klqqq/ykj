@@ -1,6 +1,7 @@
 package com.ykj.java.modules.app.service;
 
 import java.util.HashMap;
+import java.util.List;
 
 /**
  * Author:   yrx
@@ -17,9 +18,23 @@ public interface ShopInfoService {
     int queryIdentity(int userId);
 
     /**
-     * 查询商家首页信息
+     * 查询商家首页信息1
      * @param userId
      * @return
      */
-    HashMap<String,Object> queryShopInfo(int userId);
+    HashMap<String,Object> queryShopInfo1(int userId);
+
+    /**
+     * 返回一个用户的多个店铺简略信息
+     * @param userId
+     * @return
+     */
+    List<HashMap<String,Object>> queryShopList(int userId);
+
+    /**
+     * 查询商家首页信息2
+     * @param storeID
+     * @return
+     */
+    HashMap queryShopInfo2(int storeID);
 }

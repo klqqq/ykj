@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
+import java.util.List;
 
 /**
  * Author:   yrx
@@ -20,25 +21,43 @@ public class ShopCenterController {
     private ShopInfoService shopInfoService;
 
     /**
-     * 获取商家中心首页信息======================================需增加判断是否有多个店铺接口
+     * 获取商家中心首页信息
      * @param appBaseResult
      * @return
      */
     @CrossOrigin
-    @PostMapping("homepage/info")
-    public AppBaseResult getGiftInfo(@RequestBody AppBaseResult appBaseResult){
+    @PostMapping("homepage/info1")
+    public AppBaseResult getShopCenterInfo1(@RequestBody AppBaseResult appBaseResult){
         HashMap data = (HashMap) appBaseResult.getData();
         int userId=(int)data.get("userId");
-        //判断是不是商家
+        //计算店铺商量
         int check=shopInfoService.queryIdentity(userId);
         if(check<1)
             return AppBaseResult.error("抱歉，您不是商家用户");
-        else {
-            //获取商家首页信息
-            HashMap result=shopInfoService.queryShopInfo(userId);
+        //一个店铺的情况
+        else if(check==1){
+            HashMap result=shopInfoService.queryShopInfo1(userId);
             return AppBaseResult.success().setEncryptData(result);
         }
+        //多个店铺返回店铺信息列表
+        else {
+            List<HashMap<String,Object>> shopList=shopInfoService.queryShopList(userId);
+            return AppBaseResult.success("选择进入哪个店铺").setEncryptData(shopList);
+        }
+    }
 
+    /**
+     * 多店铺用户进入商家中心
+     * @param appBaseResult
+     * @return
+     */
+    @CrossOrigin
+    @PostMapping("homepage/info2")
+    public AppBaseResult getShopCenterInfo2(@RequestBody AppBaseResult appBaseResult){
+        HashMap data = (HashMap) appBaseResult.getData();
+        int storeID=(int)data.get("storeID");
+        HashMap result=shopInfoService.queryShopInfo2(storeID);
+        return AppBaseResult.success().setEncryptData(result);
     }
 
 }
