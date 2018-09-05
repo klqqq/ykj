@@ -39,26 +39,49 @@ public class GoodsManagementController {
 
     /**
      * 重命名分类
+     * @param  appBaseResult
+     * @return
      */
     @CrossOrigin
     @PostMapping("custom/kinds/rename")
-    public AppBaseResult getShopCenterInfo1(@RequestBody AppBaseResult appBaseResult){
+    public AppBaseResult updateCustomKindsName(@RequestBody AppBaseResult appBaseResult){
         HashMap data = (HashMap) appBaseResult.getData();
         int productTypeID=(int)data.get("productTypeID");
         String newName=data.get("newName").toString();
-        goodsCustomService.updateKindsName(productTypeID,newName);
+        goodsCustomService.updateCustomKindsName(productTypeID,newName);
         return AppBaseResult.success();
     }
 
     /**
-     * 置顶分类
+     * 新增自定义分类
+     * @param  appBaseResult
+     * @return
      */
+    @CrossOrigin
+    @PostMapping("custom/kinds/creation")
+    public AppBaseResult addCustomKinds(@RequestBody AppBaseResult appBaseResult){
+        HashMap data = (HashMap) appBaseResult.getData();
+        goodsCustomService.addCustomKinds(data);
+        return AppBaseResult.success();
+    }
+
+    /**
+     * 置顶自定义分类
+     * @param  appBaseResult
+     * @return
+     */
+    @CrossOrigin
+    @PostMapping("custom/kinds/setTop")
+    public AppBaseResult updateCustomKindsTop(@RequestBody AppBaseResult appBaseResult){
+        HashMap data = (HashMap) appBaseResult.getData();
+        int id=(int)data.get("productTypeID");
+        int shop_id=(int)data.get("shop_id");
+        goodsCustomService.updateCustomKindsTop(id,shop_id);
+        return AppBaseResult.success();
+    }
 
     /**
      * 删除分类
      */
 
-    /**
-     * 新增分类
-     */
 }

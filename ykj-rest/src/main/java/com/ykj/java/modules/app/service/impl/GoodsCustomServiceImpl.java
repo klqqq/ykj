@@ -4,7 +4,9 @@ import com.ykj.java.modules.app.dao.GoodsCustomDao;
 import com.ykj.java.modules.app.service.GoodsCustomService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 
@@ -33,8 +35,31 @@ public class GoodsCustomServiceImpl implements GoodsCustomService {
      * @param productTypeID
      * @param  newName
      */
-    public void updateKindsName(int productTypeID,String newName){
-        goodsCustomDao.updateKindsName(productTypeID,newName);
+    public void updateCustomKindsName(int productTypeID,String newName){
+        goodsCustomDao.updateCustomKindsName(productTypeID,newName);
+    }
+
+    /**
+     * 新增自定义分类
+     * @param map
+     */
+    public void addCustomKinds(HashMap map){
+        goodsCustomDao.addCustomKinds(map);
+    }
+
+    /**
+     * 置顶自定义分类
+     * @param id
+     *@param shop_id
+     */
+    @Transactional
+    public void updateCustomKindsTop(int id,int shop_id){
+        Date date=new Date();
+        //取消原来的置顶
+        goodsCustomDao.cancelCustomKindsTop(shop_id);
+        java.sql.Timestamp date1=new java.sql.Timestamp(date.getTime());
+        //置顶
+        goodsCustomDao.updateCustomKindsTop(id,date1);
     }
 
 }

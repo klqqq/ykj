@@ -23,5 +23,18 @@ public interface GoodsCustomService {
      * @param productTypeID
      * @param newName
      */
-    void updateKindsName(int productTypeID,String newName);
+    void updateCustomKindsName(int productTypeID,String newName);
+
+    /**
+     * 新增自定义分类
+     * @param map
+     */
+    void addCustomKinds(HashMap map);
+
+    /**
+     * 置顶自定义分类
+     * @param id
+     * @param shop_id
+     */
+    void updateCustomKindsTop(int id,int shop_id);
 }
