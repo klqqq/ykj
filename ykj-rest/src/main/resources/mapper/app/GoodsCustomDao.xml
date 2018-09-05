@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ykj.java.modules.app.dao.GoodsCustomDao">
+
+	<!--获取商品自定义分类类别-->
+	<select id="queryCustomList" parameterType="int" resultType="java.util.HashMap">
+		select productTypeID,productTypeName,isTop,setTopTime from pd_ProductTypeList where storeID=#{shop_id} order by setTopTime desc
+	</select>
+
+	<!--重命名自定义分类名-->
+	<update id="updateCustomKindsName">
+		update pd_ProductTypeList set productTypeName=#{newName} where productTypeID=#{id}
+	</update>
+
+	<!--新增自定义分类-->
+	<insert id="addCustomKinds" parameterType="java.util.HashMap">
+		insert into pd_ProductTypeList(productTypeName,storeID) values(#{name},#{shop_id})
+	</insert>
+
+	<!--取消店铺原先的置顶-->
+	<update id="cancelCustomKindsTop" parameterType="int">
+		update pd_ProductTypeList set isTop=0 where storeID=#{shop_id}
+	</update>
+
+	<!--置顶自定义分类-->
+	<update id="updateCustomKindsTop" >
+		update pd_ProductTypeList set isTop=1, setTopTime=#{date ,jdbcType=TIMESTAMP} where productTypeID=#{id}
+	</update>
+</mapper>
+

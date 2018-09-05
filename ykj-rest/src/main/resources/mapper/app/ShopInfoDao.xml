@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ykj.java.modules.app.dao.ShopInfoDao">
+
+	<!--查询用户是否是商家-->
+	<select id="queryIdentity" parameterType="int" resultType="int">
+		select count(*) from st_StoreInfo where onwerUserID=#{userId}
+	</select>
+
+	<!--查询商家信息-->
+	<select id="queryShopInfoByUserId" parameterType="int" resultType="java.util.HashMap">
+		select * from st_StoreInfo where onwerUserID=#{userId}
+	</select>
+
+	<!--统计店铺粉丝数量-->
+	<select id="queryFollowListCount" parameterType="int" resultType="int">
+		select count(*) from  us_FollowList where storeID=#{storeId}
+	</select>
+
+	<!--统计店铺订单数量-->
+	<select id="queryOrderCount" parameterType="int" resultType="int">
+		select  count(*) from od_OrderInfo where storeID=#{storeId} and state in(2,3,4)
+	</select>
+
+	<!--统计店铺待核销订单数量-->
+	<select id="queryNotUserOrderCount" parameterType="int" resultType="int">
+		select  count(*) from od_OrderInfo where storeID=#{storeId} and state=2
+	</select>
+
+	<!--查询用户拥有的所有店铺-->
+	<select id="queryShopList" parameterType="int" resultType="int">
+		select storeID from st_StoreInfo where onwerUserID=#{userId}
+	</select>
+
+	<!--根据店铺id查询商家信息-->
+	<select id="queryShopInfoByShopId" parameterType="int" resultType="java.util.HashMap">
+		select * from st_StoreInfo where storeID=#{shopId}
+	</select>
+</mapper>
+
